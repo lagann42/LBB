@@ -1,0 +1,110 @@
+///////////////////////////////////////////////////////////
+//////////////// MARGIN / PADDING HELPER ///////////////////
+$size-auto: auto;
+$size-8: 0.5rem;
+$size-9: 0.25rem;
+$size-0: 0;
+$sizes: (
+    auto,   
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    0
+);
+$positions: (
+    "top",
+    "left",
+    "bottom",
+    "right"
+);
+$bulmaSizes: (  
+    $size-auto, 
+    $size-1,
+    $size-2,
+    $size-3,
+    $size-4,
+    $size-5,
+    $size-6,
+    $size-7,
+    $size-8,
+    $size-9,
+    $size-0,
+);
+$i: 1;
+@each $size in $sizes {
+    $sizee: nth($bulmaSizes, $i);
+    $i: $i+1;
+    .has-margin-#{$size} {
+        margin: $sizee !important;
+    }
+    @include until($tablet) {
+        .has-margin-#{$size}-mobile {
+            margin: $sizee !important;
+        }       
+    }   
+    .has-padding-#{$size} {
+        padding: $sizee !important;
+    }
+    @include until($tablet) {
+        .has-padding-#{$size}-mobile {
+            padding: $sizee !important;
+        }       
+    }   
+    @each $position in $positions {
+        .has-margin-#{$position}-#{$size} {
+            margin-#{$position}: $sizee !important;
+        }
+        @include until($tablet) {
+            .has-margin-#{$position}-#{$size}-mobile {
+                margin-#{$position}: $sizee !important;
+            }       
+        }
+        .has-padding-#{$position}-#{$size} {
+            padding-#{$position}: $sizee !important;
+        }
+        @include until($tablet) {
+            .has-padding-#{$position}-#{$size}-mobile {
+                padding-#{$position}: $sizee !important;
+            }       
+        }       
+    }   
+}
+.has-text-left {
+    text-align: left;
+}
+.has-text-right {
+    text-align: right;
+}
+.padding-none {
+    padding: 0em !important;
+}
+.padding-bottom-none {
+    padding-bottom: 0em !important;
+}
+.has-padding-top-big {
+    padding-top: 8em;
+}
+.has-padding-top-medium {
+    padding-top: 6em;
+}
+.has-padding-left-big {
+    padding-left: 18em;
+}
+.has-padding-bottom-medium {
+    padding-bottom: 7em;
+}
+.has-padding-bottom-large {
+    padding-bottom: 15em;
+}
+.has-margin-top-small {
+    margin-top: 4em;
+}
+.has-margin-bottom-small {
+    margin-bottom: 6em;
+}
